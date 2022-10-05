@@ -1,7 +1,6 @@
 import { ApiProperty, ApiPropertyOptional } from "@nestjs/swagger/dist/decorators";
 import { IsNotEmpty, IsIn } from "class-validator";
 
-
 export class CreateTodoDto {
 
     @IsNotEmpty()

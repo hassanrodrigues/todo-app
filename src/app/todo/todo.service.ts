@@ -9,7 +9,8 @@ import { updateTodoDto } from './dto/update-todo.dto';
 export class TodoService {
     constructor(
         @InjectRepository(TodoEntity)
-        private readonly todoRepository: Repository<TodoEntity>) { }
+        private readonly todoRepository: Repository<TodoEntity>
+    ) { }
 
     async findAll() {
         return await this.todoRepository.find()
@@ -31,18 +32,12 @@ export class TodoService {
 
     async update(id: string, data: updateTodoDto) {
         const todo = await this.findOne(id);
-
         this.todoRepository.merge(todo, data)
-
         return await this.todoRepository.save(todo)
     }
 
     async deleteById(id: string) {
         await this.findOne(id);
-
-
         await this.todoRepository.softDelete(id);
     }
-
-
 }
