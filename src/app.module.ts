@@ -17,7 +17,7 @@ import { TodoModule } from './app/todo/todo.module';
         database: configService.get('DB_DATABASE', 'todo_app'),
         entities: [__dirname + '/**/*.entity{.js,.ts}'],
         synchronize: true,
-      })
+      }),
     }),
     TodoModule,
   ],
