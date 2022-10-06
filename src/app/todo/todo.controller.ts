@@ -11,13 +11,13 @@ import { NotFoundSwagger } from 'src/helps/swagger/not-found.swagger';
 import { updateTodoSwagger } from './swagger/update-todo.swagger';
 
 @Controller('api/v1/todos')
-@ApiTags('Todos')
+@ApiTags('ToDos')
 export class TodoController {
     constructor(private readonly todoService: TodoService) { }
 
     @Get()
     @ApiOperation({
-        summary: 'listar todas a tarefas'
+        summary: 'Listar todas a tarefas'
     })
     @ApiResponse({
         status: 200,
@@ -31,7 +31,7 @@ export class TodoController {
 
     @Post()
     @ApiOperation({
-        summary: 'cria uma nova tarefa'
+        summary: 'Cria uma nova tarefa'
     })
     @ApiResponse({
         status: 201,
@@ -49,7 +49,7 @@ export class TodoController {
 
     @Get(':id')
     @ApiOperation({
-        summary: 'obter tarefa por id'
+        summary: 'Obter tarefa por id'
     })
     @ApiResponse({
         status: 200,
@@ -100,6 +100,4 @@ export class TodoController {
     async destroy(@Param("id", new ParseUUIDPipe()) id: string) {
         await this.todoService.deleteById(id)
     }
-
-
 }
